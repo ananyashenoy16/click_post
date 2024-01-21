@@ -6,7 +6,6 @@ body{
 }
 .container{
     position: absolute;
-   
     transform: translate(-50%,-50%);
     top: 50%;
     left:50%;
@@ -26,7 +25,7 @@ body{
 
 }
 form{
-    height: 505px;
+    height: 550px;
     padding: 3em;
     border-radius:20px;
     background:rgba(255,255,255,0.3);
@@ -157,10 +156,33 @@ p{
     left: 530px;
     z-index: -1;
 }
-.gender{
+.gender {
     color: #fff;
     display: flex;
-    
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
     width: 30px;
 }
+
+.gender input {
+    margin-top: 20px;
+    margin-right: 5px;
+}
+
+.gender label {
+    margin: 0 10px 0 0;
+}
+
+
+/* =============== Nishal Modification ======================= */
+
+form .error-text {
+    color: #721c24;
+    background: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid pink;
+    display: none;
+  }
