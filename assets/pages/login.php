@@ -2,30 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/style.css" />
     <title>Sign-Up</title>
+    <?php include("../php/config.php"); ?>
   </head>
 
   <body>
     <div class="container">
-      <form action="" class="form1">
+      <form action="../php/login.php" method="post" class="form1">
         <h1>Login</h1>
-
-        <input type="text" placeholder="Username/email" />
-        <input
-          type="password"
-          name=""
-          placeholder="enter password"
-          required
-        /><br />
+        <div class="error-text"></div>
+        <input type="text" name="email" placeholder="Enter Email" required/>
+        <input type="password" name="password" placeholder="enter password" required/><br />
         <p><a href="#">Forgot Password?</a></p>
-        <input type="submit" value="Sign-in" /><br />
+        <input type="submit" class="button" value="Log-in" /><br />
         <p>New User? <a href="register.php">Sign-Up here</a></p>
-        
       </form>
-     
+
       <div class="drops">
         <div class="drop drop1"></div>
         <div class="drop drop2"></div>
@@ -38,4 +32,5 @@
       </div>
     </div>
   </body>
+  <script src="../js/login.js"></script>
 </html>

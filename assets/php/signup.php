@@ -12,12 +12,18 @@
     if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($gender) && !empty($username) && !empty($password)) {
         if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
             $sql = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
+            $sql_user = mysqli_query($conn, "SELECT * FROM users WHERE username = '{$username}'");
+
             if (mysqli_num_rows($sql) > 0) {
                 echo "$email - This email already exists!";
+            } else if (mysqli_num_rows($sql_user) > 0) {
+                echo "$username - This Username already exists!";
             } else {
-                $encrypt_pass = md5($password);
+                // Hash the password
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+
                 $insert_query = mysqli_query($conn, "INSERT INTO users (first_name, last_name, gender, email, username, password)
-                VALUES ('{$first_name}', '{$last_name}', '{$gender}', '{$email}', '{$username}', '{$encrypt_pass}')");
+                VALUES ('{$first_name}', '{$last_name}', '{$gender}', '{$email}', '{$username}', '{$hashed_password}')");
 
                 if ($insert_query) {
                     $select_sql2 = mysqli_query($conn, "SELECT * FROM users WHERE email = '{$email}'");
